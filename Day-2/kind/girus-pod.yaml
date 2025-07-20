@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    run: girus
+    env: dev
+    service: webserver
+  name: girus
+spec:
+  containers:
+  - image: nginx
+    name: nginx
+  - image: ubuntu
+    name: ubuntu
+    command: ["/bin/bash"]
+    args: ["-c", "tail -f /dev/null"]
+    resources: {}
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
+status: {}
